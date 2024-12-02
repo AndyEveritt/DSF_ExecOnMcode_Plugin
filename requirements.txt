@@ -1,0 +1,1 @@
+-e git+ssh://git@github.com/Duet3D/dsf-python.git@v3.6-dev#egg=dsf-python

@@ -43,7 +43,7 @@ async def saveCmdList_handler(http_endpoint_connection: HttpEndpointConnection):
         cmd_conn.close()
 
 
-def custom_http_endpoints(cmd_conn):
+def custom_http_endpoints(cmd_conn: CommandConnection):
     endpoints = []
 
     # Use DSF API to get the physical path to the configuration file

@@ -2,12 +2,12 @@
   "id": "ExecOnMcode",
   "name": "Exec On M-Code",
   "author": "Loïc GRENON",
-  "version": "0.6",
+  "version": "0.7",
   "license": "GPL-3.0-or-later",
   "homepage": "https://github.com/LoicGRENON/DSF_ExecOnMcode_Plugin",
-  "dwcVersion": "3.5",
+  "dwcVersion": "3.6",
   "sbcRequired": true,
-  "sbcDsfVersion": "3.5",
+  "sbcDsfVersion": "3.6",
   "sbcExecutable": "execOnMcode.py",
   "sbcOutputRedirected": true,
   "sbcPermissions": [
@@ -20,6 +20,9 @@
     "networkAccess",
     "webcamAccess",
     "gpioAccess"
-    ],
-  "sbcPackageDependencies": ["python3-dsf-python"]
+  ],
+  "sbcPackageDependencies": ["python3-dsf-python"],
+  "sbcPythonDependancies": [
+    "-e git+ssh://git@github.com/Duet3D/dsf-python.git@v3.6-dev#egg=dsf-python"
+  ]
 }
