@@ -1,7 +1,7 @@
 import json
 
 from dsf.connections import CommandConnection
-from dsf.http import HttpEndpointConnection, HttpEndpointType
+from dsf.http import HttpEndpointConnection, HttpEndpointType, HttpResponseType
 
 PLUGIN_NAME = "ExecOnMcode"
 filter_filepath = ""
@@ -19,7 +19,7 @@ async def getCmdList_handler(http_endpoint_connection: HttpEndpointConnection):
         file_data = []
 
     json_data = {'data': file_data}
-    await http_endpoint_connection.send_response(200, json.dumps(json_data))
+    await http_endpoint_connection.send_response(200, json.dumps(json_data), HttpResponseType.JSON)
     http_endpoint_connection.close()
 
 
@@ -31,7 +31,7 @@ async def saveCmdList_handler(http_endpoint_connection: HttpEndpointConnection):
         fp.write(json.dumps(json.loads(request.body), indent=4))
 
     response_data = {'success': True}
-    await http_endpoint_connection.send_response(200, json.dumps(response_data))
+    await http_endpoint_connection.send_response(200, json.dumps(response_data), HttpResponseType.JSON)
     http_endpoint_connection.close()
 
     cmd_conn = CommandConnection()
